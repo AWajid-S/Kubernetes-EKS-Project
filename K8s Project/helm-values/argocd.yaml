@@ -1,0 +1,23 @@
+server:
+  # Disable Argo CD's internal SSL redirection because the Ingress handles HTTPS.
+  extraArgs:
+    - --insecure
+
+  service:
+    type: ClusterIP
+
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+
+    annotations:
+      nginx.org/hsts: "false"
+      cert-manager.io/cluster-issuer: issuer
+
+    hosts:
+      - argocd.project.nginxwajid.uk
+
+    tls:
+      - secretName: argocd-ingress-tls
+        hosts:
+          - argocd.project.nginxwajid.uk

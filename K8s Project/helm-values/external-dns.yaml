@@ -1,0 +1,21 @@
+provider:
+  name: aws
+
+env:
+  - name: AWS_DEFAULT_REGION
+    value: eu-west-2
+
+serviceAccount:
+  create: true
+  name: external-dns
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::057827529544:role/external-dns"
+
+domainFilters:
+  - project.nginxwajid.uk
+
+policy: upsert-only
+
+registry: txt
+
+txtOwnerId: eks-project

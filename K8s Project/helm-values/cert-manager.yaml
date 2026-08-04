@@ -1,0 +1,5 @@
+serviceAccount:
+  create: true
+  name: cert-manager
+  annotations:
+    eks.amazonaws.com/role-arn: "arn:aws:iam::057827529544:role/cert-manager"
