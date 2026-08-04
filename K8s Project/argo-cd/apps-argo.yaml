@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: "https://github.com/AWajid-S/Kubernetes-EKS-Project"
     targetRevision: HEAD
-    path: app-hub
+    path: apps
 
   destination:
     server: "https://kubernetes.default.svc"
